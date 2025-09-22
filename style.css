@@ -1,0 +1,104 @@
+/* Reseteo básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fdf5a6, #000000);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+    background-color: #fdf5a6; /* Amarillo pastel */
+  }
+  50% {
+    background-position: 100% 50%;
+    background-color: #000000;
+  }
+  100% {
+    background-position: 0% 50%;
+    background-color: #fdf5a6;
+  }
+}
+
+
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Contenedor del slider */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Contenedor de las imágenes en fila */
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease; /* Animación suave */
+}
+
+/* Cada imagen ocupa toda la pantalla */
+.slides img {
+  width: 100%;
+  height: 100vh;
+  object-fit: contain;      /* 👉 Muestra la imagen completa        /* Fondo negro para que los bordes se vean elegantes */
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* 🌻 Contenedor del efecto táctil */
+.touch-flowers {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;   /* No bloquea interacciones */
+  overflow: hidden;
+  z-index: 20;            /* Más alto para que se vean sobre las imágenes */
+}
+
+/* Cada flor generada al tocar */
+.touch-flower {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ffe66d 0%, #ffd93d 50%, #facc15 100%);
+  border-radius: 50%;
+  opacity: 0.8;
+  transform: scale(0.5);
+  animation: popFlower 1.5s ease-out forwards;
+}
+
+/* Animación de aparición y desvanecimiento */
+@keyframes popFlower {
+  0% {
+    transform: scale(0.3) translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2) translateY(-20px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8) translateY(-40px);
+    opacity: 0;
+  }
+}
