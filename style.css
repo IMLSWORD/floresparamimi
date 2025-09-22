@@ -55,17 +55,17 @@ main {
 /* Cada imagen con borde animado */
 .slides img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   flex-shrink: 0;
   user-select: none;
   -webkit-user-drag: none;
 
   /* Borde animado */
-  border: 10px solid; /* grosor del borde */
+  border: 5px solid; /* grosor del borde */
   border-image-slice: 1;
-  border-width: 10px;
-  border-radius: 10px;
+  border-width: 5px;
+  border-radius: 0px;
   border-image-source: linear-gradient(270deg, #FFD93D, #FFA500, #FFFFFF, #FFD93D);
   animation: borderMove 8s linear infinite;
 }
