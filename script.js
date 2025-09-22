@@ -95,3 +95,38 @@ function handleMove(e) {
 
 window.addEventListener('mousemove', handleMove);
 window.addEventListener('touchmove', handleMove);
+
+const starsContainer = document.querySelector('.stars-container');
+
+function createStar() {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  
+  // posición aleatoria
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  
+  // tamaño aleatorio
+  const size = Math.random() * 4 + 2; // entre 2px y 6px
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  
+  // duración aleatoria
+  const duration = Math.random() * 5 + 5; // 5s a 10s
+  star.style.animationDuration = duration + 's';
+  
+  starsContainer.appendChild(star);
+  
+  // eliminar estrella después de la animación
+  setTimeout(() => {
+    star.remove();
+  }, duration * 1000);
+}
+
+// generar varias estrellas al inicio
+for (let i = 0; i < 15; i++) {
+  createStar();
+}
+
+// generar nuevas estrellas cada cierto tiempo
+setInterval(createStar, 1000);
