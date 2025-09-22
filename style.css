@@ -10,7 +10,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, #fdf5a6, #000000);
+  background: linear-gradient(135deg, #ffd857, #000000);
   background-size: 400% 400%;
   animation: gradientMove 12s ease-in-out infinite alternate;
 }
@@ -18,7 +18,7 @@ body {
 @keyframes gradientMove {
   0% {
     background-position: 0% 50%;
-    background-color: #fdf5a6; /* Amarillo pastel */
+    background-color: #ffd445; /* Amarillo pastel */
   }
   50% {
     background-position: 100% 50%;
